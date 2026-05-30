@@ -83,7 +83,7 @@ fun CalculadoraScreen(navController: NavController) {
 
             Button(
                 onClick = {
-                    if (pesoInput.length == 0 || pesoInput == " ") {
+                    if (pesoInput.isEmpty() || pesoInput == " ") {
                         errorPeso = "Este campo es obligatorio."
                         mensajeResultado = ""
                         return@Button
@@ -114,8 +114,8 @@ fun CalculadoraScreen(navController: NavController) {
                 Text("Validar y Calcular")
             }
 
-            if (mensajeResultado != "") {
-                val esAlerta = mensajeResultado.length > 0 && mensajeResultado[0] == 'A'
+            if (mensajeResultado.isNotEmpty()) {
+                val esAlerta = mensajeResultado.startsWith("ALERTA")
                 Card(
                     colors = CardDefaults.cardColors(
                         containerColor = if (esAlerta) MaterialTheme.colorScheme.errorContainer else MaterialTheme.colorScheme.primaryContainer
