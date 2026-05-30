@@ -12,7 +12,7 @@ import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PlanificadorScreen(navController: NavController? = null) { // <-- Corrección: Parámetro opcional seguro
+fun PlanificadorScreen(navController: NavController) {
     var presupuestoInput by remember { mutableStateOf("") }
     var hospedajeInput by remember { mutableStateOf("") }
     var alimentacionInput by remember { mutableStateOf("") }
@@ -141,7 +141,7 @@ fun PlanificadorScreen(navController: NavController? = null) { // <-- Correcció
             Spacer(modifier = Modifier.weight(1f))
 
             OutlinedButton(
-                onClick = { navController?.popBackStack() },
+                onClick = { navController.popBackStack() },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Regresar al Menú")
