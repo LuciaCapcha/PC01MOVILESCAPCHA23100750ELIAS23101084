@@ -29,8 +29,9 @@ fun NavGraph() {
                 onNavigateToUbicacion = { navController.navigate(Screen.Ubicacion.route) }
             )
         }
+        // CORRECCIÓN: Se le pasa (navController) entre los paréntesis
         composable(Screen.Calculadora.route) {
-            CalculadoraScreen()
+            CalculadoraScreen(navController = navController)
         }
         composable(Screen.Planificador.route) {
             PlanificadorScreen()
